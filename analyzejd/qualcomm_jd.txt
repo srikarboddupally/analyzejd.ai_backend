@@ -1,0 +1,26 @@
+Company:
+Qualcomm India Private Limited
+Job Area:
+Engineering Group, Engineering Group > Software Engineering
+General Summary:
+
+Job Area : Engineering - Software
+
+Job Location : Hyderabad / Bangalore / Chennai / Noida
+
+We know our employees' ideas change the world. For more than three decades, we've been a global leader in mobile technology, continually pushing the boundaries of what's possible. Working with customers across industries — from automotive to health care, from smart cities to robotics— we continue to accelerate innovation and unlock new possibilities in a time where everything is connected. By joining the Qualcomm family, you too can bring the future forward faster. As a software engineer, you will design, develop Software for Qualcomm's mobile chipsets which are based on cutting edge technology.
+
+Qualcomm is looking for energetic, creative and self-driven engineer to work in ➢ Multimedia Technologies such as Audio and Video codecs, Image Processing, ➢ Wireless Modem Technologies, such as 4G, WiFi, Bluetooth, Self-Organizing Networks. ➢ Platform Level SW, such as, Linux, Android, Windows, Board Support Packages. ➢ IOT Technologies, for Connected Cameras, Smart Assistants, Drones, Virtual Reality, Augmented Reality. Campus Grads will be working on following areas: • Development of real-time embedded software and device drivers • Mobile SW development for Windows Mobile, Android or Linux • Good understanding of OS concepts, Data structures, etc • C/C++ and object oriented design • Wireless network standards such as CDMA/GSM/UMTS/LTE • Linux/UNIX, Linux Drivers, Linux Kernel Development • Protocols such TCP/UDP/IP/SIP/RTP etc • Multimedia technologies including Audio, Video, Imaging • Excellent analytical and problem solving skills • Ability to collaborate and work in teams. • Good verbal and written communication skill Opportunities include: • SW development for Android, Window Mobile based Embedded Platforms • Multimedia software stack, firmware and driver Development • Wireless Modem and connectivity Software and Firmware Development • Communication protocol stack Software Development • Kernel, BSP and Device Driver Development • Application SW and UI development. • SW Architecture for embedded devices based on Android, Windows. • Design and development based on Object oriented programming.
+
+Education: Masters, Bachelors: Computer Science Engineering, Communication Engineering, ECE,
+
+Minimum Qualifications:
+
+• Bachelor's degree in Engineering, Information Systems, Computer Science, or related field.
+Education: Masters, Bachelors: Computer Science Engineering, Communication Engineering, ECE
+
+Applicants: Qualcomm is an equal opportunity employer. If you are an individual with a disability and need an accommodation during the application/hiring process, rest assured that Qualcomm is committed to providing an accessible process. You may e-mail disability-accomodations@qualcomm.com or call Qualcomm's toll-free number found here. Upon request, Qualcomm will provide reasonable accommodations to support individuals with disabilities to be able participate in the hiring process. Qualcomm is also committed to making our workplace accessible for individuals with disabilities. (Keep in mind that this email address is used to provide reasonable accommodations for individuals with disabilities. We will not respond here to requests for updates on applications or resume inquiries).
+
+Qualcomm expects its employees to abide by all applicable policies and procedures, including but not limited to security and other requirements regarding protection of Company confidential information and other confidential and/or proprietary information, to the extent those requirements are permissible under applicable law.
+
+To all Staffing and Recruiting Agencies: Our Careers Site is only for individuals seeking a job at Qualcomm. Staffing and recruiting agencies and individuals being represented by an agency are not authorized to use this site or to submit profiles, applications or resumes, and any such submissions will be considered unsolicited. Qualcomm does not accept unsolicited resumes or applications from agencies. Please do not forward resumes to our jobs alias, Qualcomm employees or any other company location. Qualcomm is not responsible for any fees related to unsolicited resumes/applications.

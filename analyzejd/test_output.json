@@ -1,0 +1,52 @@
+{
+  "understanding": {
+    "company": {
+      "name": "Qualcomm",
+      "type": "Product",
+      "context": "Product companies build and sell their own software. Engineers typically work on core product features, have more ownership, and see direct impact of their work. Career growth often depends on technical depth and product impact."
+    },
+    "role_reality": "This is primarily a support or operations role. Expect to handle tickets, troubleshoot issues, and work in shifts. Technical learning may be limited to the systems you support. Not ideal if you want to build new things."
+  },
+  "experience_fit": {
+    "required_experience": "Not explicitly specified",
+    "fresher_alignment": "Not Applicable",
+    "explanation": "The experience requirements are unclear. Research the role further and ask directly about the expected experience level during the application process."
+  },
+  "career_implications": {
+    "skills_you_will_build": [
+      "Deep product thinking and user empathy",
+      "Ownership of features end-to-end",
+      "Technical depth in specific domains"
+    ],
+    "skills_you_may_miss": [
+      "Client-facing communication",
+      "Broad technology exposure",
+      "Project management across contexts"
+    ],
+    "long_term_impact": "Strong foundation for product engineering roles. Easier transitions to other product companies or startups. May require deliberate effort to broaden technology stack."
+  },
+  "risk_and_tradeoffs": {
+    "risk_level": "Low",
+    "key_concerns": [
+      "No major concerns detected"
+    ],
+    "good_for": "Engineers who want deep ownership, product impact, and technical depth.",
+    "avoid_if": "You prefer variety across projects or want broad technology exposure."
+  },
+  "decision_guidance": {
+    "recommendation": "Apply",
+    "reasoning": "Product companies generally offer better ownership and technical depth. This role appears to be a good fit for building strong engineering foundations.",
+    "what_to_do_instead": "Prepare a strong resume highlighting projects and problem-solving skills. Practice system design basics and coding fundamentals for interviews."
+  },
+  "resume_guidance": {
+    "ats_optimized_bullets": [
+      "Developed and deployed scalable solutions aligned with Qualcomm engineering standards, improving system reliability by 25%",
+      "Led cross-functional collaboration to deliver features end-to-end, reducing time-to-market by 20%",
+      "Implemented automated testing pipelines increasing code coverage to 85% and reducing production incidents"
+    ]
+  },
+  "confidence": {
+    "overall_confidence": 0.91
+  },
+  "id": "15ad5a4e-e35e-43c2-9919-0ff15be11819"
+}

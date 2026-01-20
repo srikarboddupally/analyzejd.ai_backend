@@ -1,0 +1,101 @@
+Job Title:  Application Architect
+City:  Bengaluru
+State/Province:  Karnataka
+Posting Start Date:  11/5/25
+Wipro Limited (NYSE: WIT, BSE: 507685, NSE: WIPRO) is a leading technology services and consulting company focused on building innovative solutions that address clients' most complex digital transformation needs. Leveraging our holistic portfolio of capabilities in consulting, design, engineering, and operations, we help clients realize their boldest ambitions and build future-ready, sustainable businesses. With over 230,000 employees and business partners across 65 countries, we deliver on the promise of helping our customers, colleagues, and communities thrive in an ever-changing world. For additional information, visit us at www.wipro.com.
+Job Description: 
+Job Description
+Role Purpose
+
+The purpose of the role is to create exceptional and detailed architectural application design and provide thought leadership and enable delivery teams to provide exceptional client engagement and satisfaction.
+
+Key Responsibilities
+
+Design and implement AI-specific testing frameworks for UI, SAP,API and Mobile applications.
+
+Develop automated test suites for AI pipelines.
+
+Collaborate with Testers to define testable requirements and ensure model quality.
+
+Integrate testing into CI/CD pipelines, ensuring continuous validation of AI components.
+
+Monitor and analyze test results, identifying areas for improvement in model robustness and reliability.
+
+Ensure compliance with ethical AI standards, including fairness, transparency, and explainability.
+
+Lead testing strategy across teams, mentoring QA engineers and promoting best practices in AI testing.
+
+Strong programming skills in Java, Javascript or similar languages.
+
+Experience with ML frameworks.
+
+Expertise in test automation tools - Selenium, Appium, LeanFT, Rest Assure and AI testing platforms.
+
+Familiarity with cloud platforms (AWS, Azure, GCP).
+
+f. Provide solution of RFP's received from clients and ensure overall design assurance
+
+Develop a direction to manage the portfolio of to-be-solutions including systems, shared infrastructure services, applications in order to better match business outcome objectives
+Analyse technology environment, enterprise specifics, client requirements to set a collaboration design framework/ architecture
+Depending on the client's need with particular standards and technology stacks create complete RFPs
+Provide technical leadership to the design, development and implementation of custom solutions through thoughtful use of modern technology
+Define and understand current state solutions and identify improvements, options & tradeoffs to define target state solutions
+Clearly articulate and sell architectural targets, recommendations and reusable patterns and accordingly propose investment roadmaps
+Evaluate and recommend solutions to integrate with overall technology ecosystem
+Tracks industry and application trends and relates these to planning current and future IT needs
+g. Provides technical and strategic inputs during the project planning phase in the form of technical architectural designs and recommendations
+
+h. Account mining to find opportunities in the existing clients
+
+i. Collaborates with all relevant parties in order to review the objectives and constraints of solutions and determine conformance with the Enterprise Architecture.
+
+j. Identifies implementation risks and potential impacts.
+
+k. Create new revenue streams within applications as APIs that can be leveraged by clients
+
+l. Bring knowledge of automation in application by embracing Agile and dev-ops principles to reduce manual part
+
+2. Understanding application requirements and design a standardize application
+
+a. Creating Intellectual Property in forms of services, patterns, models and organizational approaches
+
+b. Designing patterns, best practices and reusable applications that can be used for future references
+
+c. Ensure system capabilities are consumed by system components and set criteria for evaluating technical and business value in terms of Tolerate, Invest, Migrate and Eliminate
+
+d. Provide platform to create standardize tools, uniform design and techniques are maintained to reduce costs of maintenance
+
+e. Coordinating input on risks, costs and opportunities for concepts
+
+f. Developing customised applications for the customers aligned with their needs
+
+g. Perform design and code reviews thoroughly on regular basis, keeping in mind the security measures
+
+h. Understanding design and production procedures and standards to create prototypes and finished products
+
+i. Work closely with systems analysts, software developers, data managers and other team members to ensure successful production of application software
+
+j. Offer viable solutions for various systems and architectures to different types of businesses
+
+k. Seamless integration of new and existing systems to eliminate potential problems and maintain data structure and bring value in terms of development
+
+l. Transforming all applications into digital form and implement and evolve around mesh app and service architecture that support new technologies like IOT, blockchain, machine learning, automation, BOTS etc
+
+m. Cloud Transformation: (Migration)
+
+Understanding non-functional requirements
+Producing artefacts such as deployment architecture, interface catalogue
+Identify internal and external dependency, vendor and internal IT management
+Support build and testing team
+n. Cloud Transformation: (Modernization)
+
+Understanding and Defining target architecture in Integration space
+Assessing project pipeline / demand and align to target architecture
+Technical support of delivery team in terms and POC and technical guidance
+o. Keep Up-to-date with the latest technologies in the market
+
+Mandatory Skills: AI/ML App Testing .
+
+Experience: 8-10 Years .
+
+Reinvent your world. We are building a modern Wipro. We are an end-to-end digital transformation partner with the boldest ambitions. To realize them, we need people inspired by reinvention. Of yourself, your career, and your skills. We want to see the constant evolution of our business and our industry. It has always been in our DNA - as the world around us changes, so do we. Join a business powered by purpose and a place that empowers you to design your own reinvention.
