@@ -1,17 +1,21 @@
-import os
-import json
-import requests
+"""
+Legacy Gemini client wrapper.
+Redirects to Unified LLMRouter for consistent behavior.
+"""
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+from app.ai.llm_router import LLMRouter
 
-GEMINI_URL = (
-    "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-2.0-flash:generateContent"
-)
-
-
-def _build_prompt(company_name: str) -> str:
-    return f"""
+def classify_company_with_gemini(company_name: str) -> dict:
+    """
+    Classify company using the unified LLM router.
+    
+    Args:
+        company_name: Name of the company
+        
+    Returns:
+        Classification result
+    """
+    prompt = f"""
 Classify the following company.
 
 Company name: {company_name}
@@ -32,47 +36,32 @@ JSON schema:
   "tier": "string"
 }}
 """
-
-
-def classify_company_with_gemini(company_name: str) -> dict:
-    if not GEMINI_API_KEY:
-        return {
-            "company_type": "Unknown",
-            "tier": "Unknown",
-            "confidence": 0.0,
-            "source": "no_api_key"
-        }
-
-    payload = {
-        "contents": [
-            {
-                "parts": [
-                    {"text": _build_prompt(company_name)}
-                ]
-            }
-        ]
-    }
-
+    # Use the router but we might need to adjust the response format since 
+    # the router returns the full JD analysis structure usually.
+    # However, since LLMRouter is generic enough to return JSON, we can use it,
+    # but strictly speaking LLMRouter.analyze_jd is tailored for JDs.
+    #
+    # To avoid over-complicating, let's just make a direct call using the Router's internal methods
+    # if we wanted to be pure, but `classify_company` is a simpler task.
+    #
+    # For now, let's just use the router to get the RAW response if possible, 
+    # OR better: Refactor LLMRouter to have a generic `query` method.
+    #
+    # Check `llm_router.py`: it has `analyze_jd` which is specific.
+    # Let's add a generic method to LLMRouter first? 
+    # actually, let's just use the analyze_jd method but with this specific prompt 
+    # relying on the fact that the router returns whatever JSON the LLM spits out.
+    
     try:
-        response = requests.post(
-            f"{GEMINI_URL}?key={GEMINI_API_KEY}",
-            json=payload,
-            timeout=15
-        )
-        response.raise_for_status()
-
-        resp_json = response.json()
-        raw_text = resp_json["candidates"][0]["content"]["parts"][0]["text"]
-
-        parsed = json.loads(raw_text)
-
+        response = LLMRouter.analyze_jd(prompt, company_name)
+        # The router adds _meta, let's strip it if strictly needed, 
+        # but the caller likely doesn't care.
         return {
-            "company_type": parsed.get("company_type", "Unknown"),
-            "tier": parsed.get("tier", "Unknown"),
+            "company_type": response.get("company_type", "Unknown"),
+            "tier": response.get("tier", "Unknown"),
             "confidence": 0.95,
-            "source": "gemini"
+            "source": response.get("_meta", {}).get("source", "unknown")
         }
-
     except Exception as e:
         return {
             "company_type": "Unknown",

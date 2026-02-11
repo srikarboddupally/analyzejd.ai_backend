@@ -258,10 +258,13 @@ def run_deep_pass(jd_text: str, quick):
     # Get LLM explanations (may be empty if API failed)
     llm = quick.llm_explanations
     
-    # 1. Extract experience requirement (deterministic)
-    required_exp = extract_experience_requirement(jd_text)
+    # 1. Extract experience requirement - prefer LLM, fallback to deterministic
+    if llm.required_experience:
+        required_exp = llm.required_experience
+    else:
+        required_exp = extract_experience_requirement(jd_text)
     
-    # 2. Determine fresher alignment (deterministic)
+    # 2. Determine fresher alignment (deterministic - based on experience)
     fresher_alignment = determine_fresher_alignment(required_exp, quick.company_type)
     
     # 3. Get deterministic decision (this OVERRIDES any LLM decision)
@@ -271,8 +274,11 @@ def run_deep_pass(jd_text: str, quick):
         required_experience=required_exp
     )
     
-    # 4. Get company context (deterministic template)
-    company_context = COMPANY_CONTEXT.get(quick.company_type, COMPANY_CONTEXT["Unknown"])
+    # 4. Get company context - prefer LLM's rich context, fallback to template
+    if llm.company_context:
+        company_context = llm.company_context
+    else:
+        company_context = COMPANY_CONTEXT.get(quick.company_type, COMPANY_CONTEXT["Unknown"])
     
     # 5. Role reality - prefer LLM, fallback to template
     if llm.role_reality:

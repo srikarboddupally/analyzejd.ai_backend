@@ -135,6 +135,16 @@ def run_quick_pass(jd_text: str) -> QuickPassResult:
     ai_analysis = analyze_jd_with_openai(jd_text, company_name)
     
     # 3️⃣ Extract AI results
+    understanding = ai_analysis.get("understanding", {})  # Extract understanding first
+    llm_company_name = understanding.get("company", {}).get("name", "")
+    
+    # Priority: Trust LLM extraction first (it understands context better than regex)
+    if llm_company_name and llm_company_name.lower() != "unknown":
+        company_name = llm_company_name
+    elif not company_name:
+        # Fallback: If heuristic failed too, set to empty (will be Unknown later)
+        company_name = ""
+        
     company_class = ai_analysis.get("company_classification", {})
     role_analysis = ai_analysis.get("role_analysis", {})
     ats_bullets = ai_analysis.get("ats_optimized_bullets", [])
@@ -171,7 +181,11 @@ def run_quick_pass(jd_text: str) -> QuickPassResult:
     risk_tradeoffs = ai_analysis.get("risk_and_tradeoffs", {})
     decision_guidance = ai_analysis.get("decision_guidance", {})
     
+    
     llm_explanations = LLMExplanations(
+        # Extract rich company context from LLM
+        company_context=understanding.get("company", {}).get("context", ""),
+        required_experience=experience_fit.get("required_experience", ""),
         # Try explanations first, then fall back to full structure
         role_reality=explanations_data.get("role_reality", "") or understanding.get("role_reality", ""),
         experience_explanation=explanations_data.get("experience_explanation", "") or experience_fit.get("explanation", ""),

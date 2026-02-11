@@ -4,3 +4,7 @@ pydantic
 python-dotenv
 requests
 openai
+sqlalchemy
+psycopg2-binary
+gunicorn
+python-multipart

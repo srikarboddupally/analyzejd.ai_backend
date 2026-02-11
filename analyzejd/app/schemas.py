@@ -163,6 +163,8 @@ class ConfidenceBreakdown(BaseModel):
 
 class LLMExplanations(BaseModel):
     """LLM-generated explanations (decisions are overridden by deterministic logic)."""
+    company_context: str = Field(default="", description="Rich context about the company")
+    required_experience: str = Field(default="", description="LLM's analysis of experience requirements")
     role_reality: str = ""
     experience_explanation: str = ""
     skills_you_will_build: List[str] = []

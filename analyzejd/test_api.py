@@ -3,7 +3,7 @@ import requests
 import json
 
 # Read the Wipro JD
-with open("qualcomm_jd.txt", "r") as f:
+with open("meta_jd.txt", "r") as f:
     jd_text = f.read()
 
 # Call the API
