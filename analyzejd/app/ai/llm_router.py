@@ -11,11 +11,12 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 # Models
-GEMINI_MODEL = "gemini-2.0-flash"
-GROQ_MODEL = "llama3-70b-8192"
+GEMINI_PRIMARY = "gemini-2.0-flash"
+GEMINI_FALLBACK = "gemini-1.5-flash"
+GROQ_MODEL = "llama-3.3-70b-versatile"
 
 # API URLs
-GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
+GEMINI_URL_TEMPLATE = "https://generativelanguage.googleapis.com/v1beta/models/{}:generateContent"
 
 class LLMRouter:
     """
@@ -30,14 +31,21 @@ class LLMRouter:
         """
         Analyze a JD using the defined fallback strategy.
         """
-        # 1. Try Gemini
+        # 1. Try Gemini (primary model)
         if GEMINI_API_KEY:
-            try:
-                print(f"🚀 Attempting Gemini analysis for {company_name}...")
-                return LLMRouter._call_gemini(prompt)
-            except Exception as e:
-                print(f"⚠️ Gemini analysis failed: {e}")
-                traceback.print_exc()
+            for model in [GEMINI_PRIMARY, GEMINI_FALLBACK]:
+                try:
+                    print(f"🚀 Attempting Gemini ({model}) for {company_name}...")
+                    return LLMRouter._call_gemini(prompt, model)
+                except requests.exceptions.HTTPError as e:
+                    if e.response is not None and e.response.status_code == 429:
+                        print(f"⚠️ Gemini {model} rate limited (429). Trying next...")
+                        time.sleep(2)  # brief backoff
+                        continue
+                    print(f"⚠️ Gemini {model} failed: {e}")
+                except Exception as e:
+                    print(f"⚠️ Gemini {model} failed: {e}")
+                    traceback.print_exc()
         else:
             print("ℹ️ No GEMINI_API_KEY found. Skipping Gemini.")
 
@@ -57,24 +65,25 @@ class LLMRouter:
         return LLMRouter._get_mock_response(company_name)
 
     @staticmethod
-    def _call_gemini(prompt: str) -> Dict[str, Any]:
+    def _call_gemini(prompt: str, model: str = GEMINI_PRIMARY) -> Dict[str, Any]:
         """Call Gemini API via HTTP."""
+        url = GEMINI_URL_TEMPLATE.format(model)
         payload = {
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"temperature": 0.3, "maxOutputTokens": 4000}
         }
         
         response = requests.post(
-            f"{GEMINI_URL}?key={GEMINI_API_KEY}",
+            f"{url}?key={GEMINI_API_KEY}",
             json=payload,
-            timeout=30
+            timeout=45
         )
         response.raise_for_status()
         
         data = response.json()
         raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
         
-        return LLMRouter._parse_json(raw_text, "gemini")
+        return LLMRouter._parse_json(raw_text, f"gemini-{model}")
 
     @staticmethod
     def _call_groq(prompt: str) -> Dict[str, Any]:
