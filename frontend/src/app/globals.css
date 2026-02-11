@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════════════════════
+   NOTHING × KARPATHY DESIGN SYSTEM
+   Monochrome. Dense. Zero noise. Information is the interface.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --radius: 0px;
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.1 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.1 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.1 0 0);
+  --primary: oklch(0.12 0 0);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.12 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.96 0 0);
+  --accent-foreground: oklch(0.12 0 0);
+  --destructive: oklch(0.55 0.2 25);
+  --border: oklch(0.88 0 0);
+  --input: oklch(0.88 0 0);
+  --ring: oklch(0.5 0 0);
+  --nothing-red: oklch(0.6 0.22 25);
+  --nothing-green: oklch(0.55 0.18 145);
+  --nothing-yellow: oklch(0.7 0.12 85);
+  --nothing-blue: oklch(0.55 0.12 250);
+  --nothing-dim: oklch(0.5 0 0);
+}
+
+.dark {
+  --background: oklch(0.06 0 0);
+  --foreground: oklch(0.88 0 0);
+  --card: oklch(0.09 0 0);
+  --card-foreground: oklch(0.88 0 0);
+  --popover: oklch(0.09 0 0);
+  --popover-foreground: oklch(0.88 0 0);
+  --primary: oklch(0.88 0 0);
+  --primary-foreground: oklch(0.06 0 0);
+  --secondary: oklch(0.14 0 0);
+  --secondary-foreground: oklch(0.88 0 0);
+  --muted: oklch(0.14 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: oklch(0.14 0 0);
+  --accent-foreground: oklch(0.88 0 0);
+  --destructive: oklch(0.65 0.2 25);
+  --border: oklch(0.18 0 0);
+  --input: oklch(0.14 0 0);
+  --ring: oklch(0.4 0 0);
+  --nothing-red: oklch(0.65 0.2 25);
+  --nothing-green: oklch(0.65 0.16 145);
+  --nothing-yellow: oklch(0.75 0.12 85);
+  --nothing-blue: oklch(0.6 0.12 250);
+  --nothing-dim: oklch(0.35 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+}
+
+/* ─── BASE ─── */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* ─── MONO TYPOGRAPHY ─── */
+
+@layer utilities {
+  .mono {
+    font-family: var(--font-geist-mono), "SF Mono", "Fira Code", monospace;
+    letter-spacing: 0.02em;
+  }
+
+  .label {
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--nothing-dim);
+  }
+
+  .section-idx {
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--nothing-dim);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-idx::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+}
+
+/* ─── CARDS ─── */
+
+@layer utilities {
+  .n-card {
+    border: 1px solid var(--border);
+    background: var(--card);
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .n-card:hover {
+    border-color: var(--muted-foreground);
+  }
+}
+
+/* ─── VERDICT INDICATORS ─── */
+
+@layer utilities {
+  .verdict-apply {
+    border-left: 3px solid var(--nothing-green);
+  }
+
+  .verdict-caution {
+    border-left: 3px solid var(--nothing-yellow);
+  }
+
+  .verdict-skip {
+    border-left: 3px solid var(--nothing-red);
+  }
+
+  .dot-green {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--nothing-green);
+    display: inline-block;
+  }
+
+  .dot-yellow {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--nothing-yellow);
+    display: inline-block;
+  }
+
+  .dot-red {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--nothing-red);
+    display: inline-block;
+  }
+}
+
+/* ─── TAGS ─── */
+
+@layer utilities {
+  .tag {
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--border);
+    text-transform: uppercase;
+    display: inline-block;
+  }
+
+  .tag-positive {
+    color: var(--nothing-green);
+    border-color: color-mix(in oklch, var(--nothing-green) 40%, transparent);
+  }
+
+  .tag-negative {
+    color: var(--nothing-red);
+    border-color: color-mix(in oklch, var(--nothing-red) 40%, transparent);
+  }
+}
+
+/* ─── CONFIDENCE BAR ─── */
+
+@layer utilities {
+  .conf-track {
+    height: 2px;
+    background: var(--border);
+    overflow: hidden;
+  }
+
+  .conf-fill {
+    height: 100%;
+    background: var(--foreground);
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+/* ─── PULSE ANIMATION ─── */
+
+.n-pulse {
+  animation: n-pulse 2s ease-in-out infinite;
+}
+
+@keyframes n-pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ─── TEXTAREA OVERRIDE (zero border radius) ─── */
+
+textarea {
+  border-radius: 0 !important;
+}

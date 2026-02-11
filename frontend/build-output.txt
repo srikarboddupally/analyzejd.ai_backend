@@ -1,0 +1,26 @@
+ΓÜá Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of D:\Folder\Projects\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * D:\Folder\Projects\JDAnalyzer\frontend\package-lock.json
+
+Γû▓ Next.js 16.1.1 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 3.4s
+  Running TypeScript ...
+Failed to compile.
+
+./src/components/ui/badge.tsx:5:20
+Type error: Cannot find module '@/lib/utils' or its corresponding type declarations.
+
+  3 | import { cva, type VariantProps } from "class-variance-authority"
+  4 |
+> 5 | import { cn } from "@/lib/utils"
+    |                    ^
+  6 |
+  7 | const badgeVariants = cva(
+  8 |   "inline-flex items-center justify-center rounded-full border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
+Next.js build worker exited with code: 1 and signal: null
