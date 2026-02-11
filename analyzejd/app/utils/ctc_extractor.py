@@ -1,6 +1,7 @@
 import re
+from typing import Optional
 
-def extract_ctc(jd_text: str) -> str | None:
+def extract_ctc(jd_text: str) -> Optional[str]:
     """
     Extracts advertised CTC if present.
     Many FAANG JDs do NOT mention CTC (this is normal).

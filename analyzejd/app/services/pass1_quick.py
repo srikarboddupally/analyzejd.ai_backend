@@ -4,6 +4,7 @@ Quick pass analysis using OpenAI for comprehensive JD insights.
 Single API call design for cost efficiency.
 """
 
+from typing import Optional, Tuple
 from app.schemas import (
     QuickPassResult, 
     CandidateInsights, 
@@ -36,12 +37,12 @@ COMPANY_TYPE_SCORES = {
 
 
 def calculate_confidence_score(
-    company_name: str | None,
+    company_name: Optional[str],
     company_type: str,
     company_tier: str,
     risk_signals: list,
     role_clarity: float
-) -> tuple[float, ConfidenceBreakdown]:
+) -> Tuple[float, ConfidenceBreakdown]:
     """
     Calculate confidence score using weighted formula:
     - Company recognition: 25%
@@ -82,7 +83,7 @@ def calculate_confidence_score(
 
 def generate_final_verdict(
     confidence_score: float,
-    company_name: str | None,
+    company_name: Optional[str],
     company_tier: str,
     risk_signals: list,
     candidate_insights: dict

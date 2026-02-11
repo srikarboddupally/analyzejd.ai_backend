@@ -7,6 +7,7 @@ Used as a fallback/override when LLM returns Unknown or incorrect classification
 """
 
 import re
+from typing import Optional, Tuple
 
 # Company database with name aliases and classification
 COMPANY_DATABASE = {
@@ -256,7 +257,7 @@ COMPANY_DATABASE = {
 }
 
 
-def extract_company_name(jd_text: str) -> str | None:
+def extract_company_name(jd_text: str) -> Optional[str]:
     """Extract company name from JD text using known aliases."""
     text = jd_text.lower()
 
@@ -282,7 +283,7 @@ def extract_company_name(jd_text: str) -> str | None:
     return None
 
 
-def get_company_classification(company_name: str) -> dict | None:
+def get_company_classification(company_name: str) -> Optional[dict]:
     """
     Get deterministic classification for a known company.
     
@@ -312,7 +313,7 @@ def override_company_classification(
     company_name: str,
     llm_type: str,
     llm_tier: str
-) -> tuple[str, str]:
+) -> Tuple[str, str]:
     """
     Override LLM classification with deterministic lookup if available.
     
